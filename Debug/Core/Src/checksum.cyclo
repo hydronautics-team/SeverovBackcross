@@ -1,0 +1,2 @@
+../Core/Src/checksum.c:3:6:IsChecksum8bCorrect	3
+../Core/Src/checksum.c:21:6:AddChecksum8b	2

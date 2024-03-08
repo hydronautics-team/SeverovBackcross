@@ -1,0 +1,11 @@
+../Core/Src/MS5837-02BA.c:55:5:cmp	1
+../Core/Src/MS5837-02BA.c:59:6:MS5837_02BA_begin	1
+../Core/Src/MS5837-02BA.c:63:6:MS5837_02BA_init	3
+../Core/Src/MS5837-02BA.c:81:9:MS5837_02BA_get_actual_pressure	6
+../Core/Src/MS5837-02BA.c:98:6:init_new_convertion	1
+../Core/Src/MS5837-02BA.c:104:6:MS5837_I2C_MasterRxCplt	4
+../Core/Src/MS5837-02BA.c:120:6:MS5837_I2C_MasterTxCplt	6
+../Core/Src/MS5837-02BA.c:141:6:MS5837_I2C_MasterError	1
+../Core/Src/MS5837-02BA.c:145:9:MS5837_02BA_check_pressure	1
+../Core/Src/MS5837-02BA.c:164:10:MS5837_02BA_reset_pressure	2
+../Core/Src/MS5837-02BA.c:176:6:calculate	2

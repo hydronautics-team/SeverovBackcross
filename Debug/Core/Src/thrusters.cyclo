@@ -1,0 +1,5 @@
+../Core/Src/thrusters.c:9:5:search_thruster_by_address	3
+../Core/Src/thrusters.c:17:6:set_thruster_velocity	1
+../Core/Src/thrusters.c:23:6:thrusters_update	6
+../Core/Src/thrusters.c:32:6:init_thrusters_data	1
+../Core/Src/thrusters.c:70:6:init_thrusters	1

@@ -1,0 +1,2 @@
+../Core/Src/sensors.c:10:6:init_sensors	2
+../Core/Src/sensors.c:19:9:get_actual_pressure	1
