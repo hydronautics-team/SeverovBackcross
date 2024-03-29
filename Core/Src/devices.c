@@ -17,8 +17,8 @@ void init_devices()
 {
 	devices[0].htim = &htim3;
 	devices[0].channel = TIM_CHANNEL_1;
-	devices[0].state_poses[CLOSED] = 480;
-	devices[0].state_poses[OPENED] = 200;
+	devices[0].state_poses[CLOSED] = 600;
+	devices[0].state_poses[OPENED] = 350;
 
 	devices[1].htim = &htim3;
 	devices[1].channel = TIM_CHANNEL_2;

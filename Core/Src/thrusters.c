@@ -33,13 +33,13 @@ void init_thrusters_data(){
     thrusters[0].address = 0;
     thrusters[0].velocity = 0;
     thrusters[0].htim = &htim1;
-    thrusters[0].chanel = TIM_CHANNEL_1;
+    thrusters[0].chanel = TIM_CHANNEL_2;
     thrusters[0].need_update = true;
 
     thrusters[1].address = 1;
     thrusters[1].velocity = 0;
     thrusters[1].htim = &htim1;
-    thrusters[1].chanel = TIM_CHANNEL_2;
+    thrusters[1].chanel = TIM_CHANNEL_3;
     thrusters[1].need_update = true;
 
     thrusters[2].address = 2;
@@ -56,14 +56,14 @@ void init_thrusters_data(){
 
     thrusters[4].address = 4;
     thrusters[4].velocity = 0;
-    thrusters[4].htim = &htim3;
+    thrusters[4].htim = &htim2;
     thrusters[4].chanel = TIM_CHANNEL_2;
     thrusters[4].need_update = true;
 
     thrusters[5].address = 5;
     thrusters[5].velocity = 0;
     thrusters[5].htim = &htim2;
-    thrusters[5].chanel = TIM_CHANNEL_4;
+    thrusters[5].chanel = TIM_CHANNEL_3;
     thrusters[5].need_update = true;
 };
 

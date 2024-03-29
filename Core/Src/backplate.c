@@ -19,6 +19,7 @@ extern I2C_HandleTypeDef hi2c1;
 
 int32_t real_depth = 0;
 uint32_t dtick;
+Device_state state = CLOSED;
 
 void backplate_init(){
     init_comm();
@@ -28,11 +29,10 @@ void backplate_init(){
 }
 
 void backplate_loop(){
-    thrusters_update();
-    devices_update();
-   // tx_presure(MS5837_02BA_get_actual_pressure());
+	thrusters_update();
+	devices_update();
 
-  update_com();
+	update_com();
 
 //	uint8_t data[] = {0xAA};
 //	HAL_I2C_Slave_Transmit	(&hi2c1, data, 1, HAL_MAX_DELAY);
