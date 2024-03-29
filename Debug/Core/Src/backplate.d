@@ -25,10 +25,10 @@ Core/Src/backplate.o: ../Core/Src/backplate.c ../Core/Inc/backplate.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
- ../Core/Inc/messages.h ../Core/Inc/checksum.h \
+ ../Core/Inc/messages.h ../Core/Inc/thrusters.h ../Core/Inc/checksum.h \
  ../Core/Inc/communication.h ../Core/Inc/messages.h \
  ../Core/Inc/thrusters.h ../Core/Inc/sensors.h ../Core/Inc/main.h \
- ../Core/Inc/MS5837-02BA.h ../Core/Inc/main.h
+ ../Core/Inc/MS5837-02BA.h ../Core/Inc/main.h ../Core/Inc/devices.h
 ../Core/Inc/backplate.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 ../Core/Inc/stm32f1xx_hal_conf.h:
@@ -57,6 +57,7 @@ Core/Src/backplate.o: ../Core/Src/backplate.c ../Core/Inc/backplate.h \
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:
 ../Core/Inc/messages.h:
+../Core/Inc/thrusters.h:
 ../Core/Inc/checksum.h:
 ../Core/Inc/communication.h:
 ../Core/Inc/messages.h:
@@ -65,3 +66,4 @@ Core/Src/backplate.o: ../Core/Src/backplate.c ../Core/Inc/backplate.h \
 ../Core/Inc/main.h:
 ../Core/Inc/MS5837-02BA.h:
 ../Core/Inc/main.h:
+../Core/Inc/devices.h:

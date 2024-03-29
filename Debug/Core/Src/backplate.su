@@ -1,2 +1,2 @@
-../Core/Src/backplate.c:22:6:backplate_init	8	static
-../Core/Src/backplate.c:28:6:backplate_loop	8	static
+../Core/Src/backplate.c:23:6:backplate_init	8	static
+../Core/Src/backplate.c:30:6:backplate_loop	8	static

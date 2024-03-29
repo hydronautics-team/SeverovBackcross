@@ -5,6 +5,7 @@
 #include "thrusters.h"
 #include "main.h"
 #include "MS5837-02BA.h"
+#include "devices.h"
 
 extern UART_HandleTypeDef huart1;
 static uint8_t message_buff[NORMAL_REQUEST_LENGTH];
@@ -15,19 +16,33 @@ uint32_t hal_last_presure_tick = 0;
 
 uint8_t i2c_master_rx_buff[PRESURE_TX_BUF_SIZE];
 
+HAL_StatusTypeDef status;
+
 enum {
 	TRANSMISION,
 	NONE,
 } i2c_master_tx_state = NONE;
 
 bool frameready = false;
+uint32_t watchdog_counter = 0;
+
+enum
+{
+	WAITING_HEADER,
+	RECEIVING_MESSAGE
+} uart_state;
 
 bool parse_velocity_package(uint8_t  *message)
 {
     if  (IsChecksum8bCorrect(message, NORMAL_REQUEST_LENGTH))  {
-    	for(int i = 0; i < 8; i++)
+    	for(int i = 0; i < THRUSTERS_NUM; i++)
     	{
-        set_thruster_velocity(i, ((struct VelocityRequest*)message)->velocity[i]);
+    		set_thruster_velocity(i, ((struct VelocityRequest*)message)->velocity[i]);
+    	}
+    	for(int i =0; i<DEVICES_NUM; i++)
+    	{
+    		set_device_state(i,
+    				((struct VelocityRequest*)message)->device_states&(1<<i));
     	}
         return true;
     }
@@ -36,7 +51,6 @@ bool parse_velocity_package(uint8_t  *message)
 
 void init_comm(){
     HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_RESET);
-    HAL_UART_Receive_DMA(&huart1, message_buff, NORMAL_REQUEST_LENGTH);
 }
 
 void AddChecksumm8b(uint8_t *msg, uint16_t length)
@@ -78,11 +92,25 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart){
 }
 
 void update_com(){
-    if(frameready){
-        parse_velocity_package(message_buff);
-        frameready = false;
-        while(HAL_UART_Receive_DMA(&huart1, message_buff, NORMAL_REQUEST_LENGTH)!=HAL_OK);
-    }
+	switch(uart_state)
+		{
+		case WAITING_HEADER:
+			if(message_buff[0]==0xAA)
+			{
+				uart_state = RECEIVING_MESSAGE;
+				status = HAL_UART_Receive(&huart1, &message_buff[1], NORMAL_REQUEST_LENGTH-1, 100);
+			}
+			else
+			{
+				status = HAL_UART_Receive(&huart1, message_buff, 1, 100);
+			}
+			break;
+		case RECEIVING_MESSAGE:
+			parse_velocity_package(message_buff);
+			status = HAL_UART_Receive(&huart1, message_buff, 1, 100);
+			uart_state = WAITING_HEADER;
+			break;
+		}
 }
 
 void I2C_SlaveTxCplt(I2C_HandleTypeDef *hi2c){
@@ -90,7 +118,7 @@ void I2C_SlaveTxCplt(I2C_HandleTypeDef *hi2c){
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
-    frameready = true;
+	frameready = true;
 }
 
 void HAL_I2C_MasterRxCpltCallback(I2C_HandleTypeDef *hi2c) {

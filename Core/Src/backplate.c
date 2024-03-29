@@ -12,6 +12,7 @@
 #include "sensors.h"
 #include "main.h"
 #include "MS5837-02BA.h"
+#include "devices.h"
 
 extern UART_HandleTypeDef huart1;
 extern I2C_HandleTypeDef hi2c1;
@@ -22,11 +23,13 @@ uint32_t dtick;
 void backplate_init(){
     init_comm();
     init_thrusters();
+    init_devices();
  //   init_sensors();
 }
 
 void backplate_loop(){
     thrusters_update();
+    devices_update();
    // tx_presure(MS5837_02BA_get_actual_pressure());
 
   update_com();

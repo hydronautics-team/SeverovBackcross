@@ -41,6 +41,7 @@
 #define VELOCITY_RESPONSE_LENGTH             10
 
 #include <stdint.h>
+#include "thrusters.h"
 
 #pragma pack(push, 1)
 
@@ -49,8 +50,8 @@ struct VelocityRequest
     uint8_t AA;
     uint8_t type; // 0x01
     uint8_t address;
-    int8_t velocity[8];
-    int8_t pwm_servo;
+    int8_t velocity[THRUSTERS_NUM];
+    int8_t device_states;
     uint8_t crc;
 };
 

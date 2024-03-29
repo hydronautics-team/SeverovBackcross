@@ -1,6 +1,4 @@
-Core/Src/communication.o: ../Core/Src/communication.c \
- ../Core/Inc/communication.h ../Core/Inc/messages.h \
- ../Core/Inc/thrusters.h \
+Core/Src/devices.o: ../Core/Src/devices.c ../Core/Inc/devices.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
@@ -26,13 +24,8 @@ Core/Src/communication.o: ../Core/Src/communication.c \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
- ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
- ../Core/Inc/checksum.h ../Core/Inc/messages.h ../Core/Inc/thrusters.h \
- ../Core/Inc/main.h ../Core/Inc/MS5837-02BA.h ../Core/Inc/main.h \
- ../Core/Inc/devices.h
-../Core/Inc/communication.h:
-../Core/Inc/messages.h:
-../Core/Inc/thrusters.h:
+ ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
+../Core/Inc/devices.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 ../Core/Inc/stm32f1xx_hal_conf.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:
@@ -59,10 +52,3 @@ Core/Src/communication.o: ../Core/Src/communication.c \
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:
-../Core/Inc/checksum.h:
-../Core/Inc/messages.h:
-../Core/Inc/thrusters.h:
-../Core/Inc/main.h:
-../Core/Inc/MS5837-02BA.h:
-../Core/Inc/main.h:
-../Core/Inc/devices.h:

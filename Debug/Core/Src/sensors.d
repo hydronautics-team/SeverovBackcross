@@ -26,7 +26,7 @@ Core/Src/sensors.o: ../Core/Src/sensors.c ../Core/Inc/sensors.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
  ../Core/Inc/MS5837-02BA.h ../Core/Inc/main.h ../Core/Inc/communication.h \
- ../Core/Inc/messages.h
+ ../Core/Inc/messages.h ../Core/Inc/thrusters.h
 ../Core/Inc/sensors.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
@@ -59,3 +59,4 @@ Core/Src/sensors.o: ../Core/Src/sensors.c ../Core/Inc/sensors.h \
 ../Core/Inc/main.h:
 ../Core/Inc/communication.h:
 ../Core/Inc/messages.h:
+../Core/Inc/thrusters.h:

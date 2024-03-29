@@ -60,8 +60,8 @@ all: main-build
 main-build: backcross.elf secondary-outputs
 
 # Tool invocations
-backcross.elf backcross.map: $(OBJS) $(USER_OBJS) D:\Sea_Jackal\Gidro\Severov\Severov\ Code\backcross_pcb-main\backcross_pcb-main\STM32F103C6TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "backcross.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\Sea_Jackal\Gidro\Severov\Severov Code\backcross_pcb-main\backcross_pcb-main\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="backcross.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+backcross.elf backcross.map: $(OBJS) $(USER_OBJS) D:\Sea_Jackal\Gidro\Severov\Severov\ Code\SeverovBackcross\STM32F103C6TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "backcross.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\Sea_Jackal\Gidro\Severov\Severov Code\SeverovBackcross\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="backcross.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
